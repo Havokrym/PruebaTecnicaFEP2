@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <form class="content" [formGroup]="regisForm" (ngSubmit)="submitData()">
+        <h3 class="text-center">
+            Formulario Reactivo
+        </h3>
+
+        <div class="row">
+            <div class=" mt-2 mb-2 col-1g-12 col-12">
+                <input type="text" formControlName="Nombre" class="form-control" placeholder="Nombre">
+                <div *ngIf="nombre.invalid && nombre.touched || nombre.dirty">
+                    <span class="error" *ngIf="nombre.errors?.required">*Nombre requerido.</span>
+                    <span class="error" *ngIf="nombre.errors?.pattern">*Solo se aceptan letras.</span>
+                </div>   
+            </div>
+
+            <div class="mt-2 mb-2 col-1g-12 col-12">
+                <input type="text" formControlName="Apellido" class="form-control" placeholder="Apellidos">
+                <div *ngIf="apellido.invalid && apellido.touched || apellido.dirty">
+                    <span class="error" *ngIf="apellido.errors?.required">*Apellido requerido.</span>
+                    <span class="error" *ngIf="apellido.errors?.pattern">*Solo se aceptan letras.</span>
+                </div>       
+            </div>
+
+            <div class="mt-2 mb-2 col-1g-12 col-12">
+                <input type="text" formControlName="fechaNacim" class="form-control" placeholder="Fecha de nacimiento">
+                <div *ngIf="fecha.invalid && fecha.touched || fecha.dirty">
+                    <span class="error" *ngIf="fecha.errors?.required">*Fecha de nacimiento requerida.</span>
+                    <span class="error" *ngIf="fecha.errors?.pattern">*Solo se aceptan numeros.</span>
+                </div>   
+            </div>
+
+            <div class="mt-3 mb-3 col-1g-12 col-12">
+                <button class="btn" [disabled]="regisForm.invalid">
+                    Validar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
